@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [navIsClose, setNavIsClose] = useState(true);
 
   const hamburgerOnClick = () => {
+    setNavIsOpen((prev) => !prev);
+    setNavIsClose((prev) => !prev);
+  };
+
+  const closeNavbar = () => {
     setNavIsOpen((prev) => !prev);
     setNavIsClose((prev) => !prev);
   };
@@ -24,35 +30,41 @@ const Navbar = () => {
     <>
       <header>
         <nav className="navbar">
-          <a href="/" className="nav-branding">
+          {/* <a href="/" className="nav-branding"> */}
+          <Link to="/" className="nav-branding">
             <h1>MyNotesApp</h1>
-          </a>
+          </Link>
+
           <div className="flex">
             <ul className={navMenuClasses}>
-              <li className="nav-item">
-                <a href="home.html" className="nav-link">
+              <li className="nav-item" onClick={closeNavbar}>
+                <Link to='/' className="nav-link">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/pricing" className="nav-link">
-                  Pricing
-                </a>
+                <Link to="/features" className="nav-link">
+                  Features
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/about" className="nav-link">
+                <Link to="/about" className="nav-link">
                   About
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <p className="login center"> Login</p>
+                <Link className="login center" to="/auth/login">
+                  Login
+                </Link>
               </li>
 
               <li className="nav-item">
-                <button type="button" className="main-cta signup-btn">
-                  Signup
-                </button>
+                <Link className="signup center" to="/auth/signup">
+                  <button type="button" className="main-cta signup-btn">
+                    Signup
+                  </button>
+                </Link>
               </li>
             </ul>
           </div>
