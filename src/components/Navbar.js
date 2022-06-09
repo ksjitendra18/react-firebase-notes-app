@@ -52,6 +52,11 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/dashboard" className="nav-link">
+                  Dashboard
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link className="login center" to="/auth/login">

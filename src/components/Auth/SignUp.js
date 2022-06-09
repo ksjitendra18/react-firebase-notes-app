@@ -24,6 +24,15 @@ const Auth = () => {
               name="email"
               placeholder="Your Email"
             />
+
+            <label htmlFor="name">Place</label>
+            <input
+              type="text"
+              id="namefield"
+              required
+              name="name"
+              placeholder="Your Name"
+            />
             <label htmlFor="password">Password</label>
             <input
               type="text"
@@ -35,7 +44,12 @@ const Auth = () => {
             <button className="form-signup-btn">Signup</button>
 
             <p className="form-para">
-              Already Registered? <Link to="/auth/login"><u><strong>Login</strong></u></Link>
+              Already Registered?{" "}
+              <Link to="/auth/login">
+                <u>
+                  <strong>Login</strong>
+                </u>
+              </Link>
             </p>
           </form>
         </div>

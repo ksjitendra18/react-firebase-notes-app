@@ -12,6 +12,7 @@ ul {
 }
 button {
   border: none;
+  cursor: pointer;
 }
 
 header {
@@ -282,6 +283,13 @@ section.main-section {
     margin-top: 20px;
     
   }
+
+  .login-form-error{
+    margin-top: 10px;
+    color: red;
+    padding: 5px 10px;
+    background-color: white;
+  }
   
   @media (max-width: 768px) {
   
@@ -290,3 +298,65 @@ section.main-section {
           margin: 0 10px;
        }
   }
+
+
+  /* dashbord */
+
+
+  
+  .logout-btn {
+    margin-left: 30px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 22px;
+    cursor: pointer;
+    color: white;
+    font: inherit;
+    padding: 8px 36px;
+  
+    font-weight: bold;
+  }
+  
+  .dashboard-container {
+    height: 400px;
+    margin: 50px;
+    min-width: min-content;
+    padding: 0 30px;
+    background: #1f3060;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+  }
+  
+  .dash-btn {
+    background: transparent;
+    border: 1.5px solid white;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 25px;
+  }
+  .greeting {
+    margin-bottom: 30px;
+  }
+  
+  .dashboard-cta {
+    display: flex;
+    gap: 30px;
+    margin-top: 60px;
+  }
+  
+  @media (min-width: 900px) {
+    .dashboard-container {
+      margin: 50px 250px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      margin: 30px;
+    }
+  }
+  
