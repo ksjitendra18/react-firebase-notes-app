@@ -3,19 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { AuthContext } from "../../context/AuthContext";
-import {
-  addDoc,
-  doc,
-  setDoc,
-  collection,
-  serverTimestamp,
-} from "firebase/firestore";
+import { addDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase";
 const Auth = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("");
   const [data, setData] = useState({});
 
   const navigate = useNavigate();
@@ -61,17 +51,17 @@ const Auth = () => {
 
       console.log(res.user);
 
-    
-
       await setDoc(doc(db, "users", res.user.uid), {
         ...data,
         timeStamp: serverTimestamp(),
       });
+
+      const userDetails = res.user;
+      dispatch({ type: "LOGIN", payload: userDetails });
+      navigate("/dashboard");
     } catch (err) {
       console.log(err);
     }
-
-   
   };
 
   return (

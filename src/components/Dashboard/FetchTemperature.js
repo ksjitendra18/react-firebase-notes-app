@@ -30,7 +30,6 @@ const FetchTemperature = () => {
         console.log(users.name);
         setUserLocation(users.location);
       } else {
-       
         console.log("No such document!");
       }
     };
@@ -58,10 +57,13 @@ const FetchTemperature = () => {
   });
 
   return (
-    <p>
-      hello {userName}
-      The weather at {userLocation} is {weatherData}°C
-    </p>
+    <>
+     <h2 className="greeting">
+      Hello {userName}
+    </h2>
+      <div className="weather-info">The weather at <strong>{userLocation}</strong> is <strong>{weatherData}°C</strong></div>
+    </>
+   
   );
 };
 

@@ -334,6 +334,8 @@ form {
 }
 .greeting {
   margin-bottom: 30px;
+  text-transform: capitalize;
+
 }
 
 .dashboard-cta {
