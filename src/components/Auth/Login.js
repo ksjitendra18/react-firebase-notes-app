@@ -23,8 +23,6 @@ const Auth = () => {
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
         navigate("/dashboard");
-
-        // ...
       })
       .catch((error) => {
         // const errorCode = error.code;
@@ -51,7 +49,7 @@ const Auth = () => {
             />
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="passwordfield"
               required
               name="password"
@@ -59,7 +57,9 @@ const Auth = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className="form-signup-btn">Log In</button>
-            {error && <span className="login-form-error">Wrong email or password</span>}
+            {error && (
+              <span className="login-form-error">Wrong email or password</span>
+            )}
             <p className="form-para">
               Not Registered?{" "}
               <Link to="/auth/signup">

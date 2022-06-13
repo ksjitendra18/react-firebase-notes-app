@@ -1,7 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
+ 
 const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const { dispatch } = useContext(AuthContext);
+
+  const logoutHandler = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+
+  const userIsLoggedIn = currentUser !== null;
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [navIsClose, setNavIsClose] = useState(true);
 
@@ -38,7 +53,7 @@ const Navbar = () => {
           <div className="flex">
             <ul className={navMenuClasses}>
               <li className="nav-item" onClick={closeNavbar}>
-                <Link to='/' className="nav-link">
+                <Link to="/" className="nav-link">
                   Home
                 </Link>
               </li>
@@ -52,25 +67,34 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/dashboard" className="nav-link">
-                  Dashboard
-                </Link>
-              </li>
+              {userIsLoggedIn && (
+                <li className="nav-item">
+                  <Link to="/dashboard" className="nav-link">
+                    Dashboard
+                  </Link>
+                </li>
+              )}
 
-              <li className="nav-item">
+           {!userIsLoggedIn &&   <li className="nav-item">
                 <Link className="login center" to="/auth/login">
                   Login
                 </Link>
-              </li>
+              </li>}
 
-              <li className="nav-item">
+            {!userIsLoggedIn &&  <li className="nav-item">
                 <Link className="signup center" to="/auth/signup">
                   <button type="button" className="main-cta signup-btn">
                     Signup
                   </button>
                 </Link>
-              </li>
+              </li>}
+             {userIsLoggedIn && <li className="nav-item">
+                <Link className="signup center" to="/auth/signup">
+                  <button type="button" className="main-cta signup-btn" onClick={logoutHandler}>
+                    Logout
+                  </button>
+                </Link>
+              </li>}
             </ul>
           </div>
 

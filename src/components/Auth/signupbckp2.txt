@@ -53,20 +53,34 @@ const Auth = () => {
     e.preventDefault();
 
     try {
-      const res = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-
-      console.log(res.user);
+      // const res = await createUserWithEmailAndPassword(
+      //   auth,
+      //   data.email,
+      //   data.password
+      // );
 
     
 
-      await setDoc(doc(db, "users", res.user.uid), {
-        ...data,
-        timeStamp: serverTimestamp(),
+      createUserWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        // Signed in
+        
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
+        // navigate("/dashboard");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+  
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ..
       });
+    //   await setDoc(doc(db, "users", res.user.uid), {
+    //     ...data,
+    //     timeStamp: serverTimestamp(),
+    //   });
     } catch (err) {
       console.log(err);
     }

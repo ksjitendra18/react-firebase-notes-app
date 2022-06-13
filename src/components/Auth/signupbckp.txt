@@ -16,62 +16,45 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
-  const [data, setData] = useState({});
 
+console.log(name);
   const navigate = useNavigate();
   const auth = getAuth();
 
-  const handelInput = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-
-    setData({ ...data, [id]: value });
-  };
-
-  console.log(data);
-
   const { dispatch } = useContext(AuthContext);
 
-  // const handleSignup = (event) => {
-  //   event.preventDefault();
+  const handleSignup = (event) => {
+    event.preventDefault();
 
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       dispatch({ type: "LOGIN", payload: user });
-  //       navigate("/dashboard");
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // ..
-  //     });
-  // };
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
 
   const handleAdd = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-
-      console.log(res.user);
-
-    
-
+      const res = await createUserWithEmailAndPassword(auth, email, password);
       await setDoc(doc(db, "users", res.user.uid), {
-        ...data,
-        timeStamp: serverTimestamp(),
+        name: name,
+        location: location,
+        email: email,
+        password: password,
+        timeStamp: serverTimestamp()
       });
     } catch (err) {
       console.log(err);
     }
-
-   
   };
 
   return (
@@ -84,39 +67,41 @@ const Auth = () => {
             <label htmlFor="name">Name</label>
             <input
               type="text"
-              id="name"
+              id="namefield"
               required
               name="name"
               placeholder="Your Name"
-              onChange={handelInput}
+              onChange={(e) => setName(e.target.value)}
+
             />
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              id="email"
+              id="emailfield"
               required
               name="email"
               placeholder="Your Email"
-              onChange={handelInput}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <label htmlFor="location">Place</label>
             <input
               type="text"
-              id="location"
+              id="namefield"
               required
               name="location"
               placeholder="Location (City)"
-              onChange={handelInput}
+              onChange={(e) => setLocation(e.target.value)}
+
             />
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              id="password"
+              id="passwordfield"
               required
               name="password"
               placeholder="Password"
-              onChange={handelInput}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button className="form-signup-btn">Signup</button>
 

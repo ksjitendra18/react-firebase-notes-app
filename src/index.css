@@ -41,7 +41,7 @@ ul {
   margin-right: 50px;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -204,159 +204,222 @@ section.main-section {
     width: 250px;
   }
 
-  .leftside{
-    margin: 0 ;
+  .leftside {
+    margin: 0;
     align-items: center;
     justify-content: center;
   }
 
- .mobile-main-text.hidden{
+  .mobile-main-text.hidden {
     display: block;
-    font-size : 30px;
+    font-size: 30px;
     text-align: center;
-    margin:  25px 0 20px 0;
+    margin: 25px 0 20px 0;
   }
 
- .main-text{
-   display: none;
-
+  .main-text {
+    display: none;
   }
 
-  .leftside p{
+  .leftside p {
     text-align: center;
   }
 }
 
-
-#authsignup{
+#authsignup {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-  
-  }
-  
-  .form{
-      background: #1f3060;
-      color: white;
-      min-height: 400px;
-      width: 400px;
-      display: flex;
-      flex-direction: column;
-      /* justify-content: center;
+}
+
+.form {
+  background: #1f3060;
+  color: white;
+  min-height: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
       align-items: center; */
-  
-      padding: 30px 40px;
-      border-radius: 30px;
-  }
-  
-  input{
-      height: 30px;
-      padding: 5px;
-      margin-bottom: 15px;
-  }
-  
-  #authsignup label{
-      font-size: 16px;
-      margin-bottom: 5px;
-      font: inherit;
-      font-family: 'inter', sans-serif;
-  
-  }
-  
-  .form-signup-btn{
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-      margin-top: 20px;
-      padding: 10px 20px;
-  }
-  
-  form{
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-  }
 
-  .form-para{
-    font-size: 16px;
-    margin-top: 20px;
-    
+  padding: 30px 40px;
+  border-radius: 30px;
+}
+
+input {
+  height: 30px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+#authsignup label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font: inherit;
+  font-family: "inter", sans-serif;
+}
+
+.form-signup-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-para {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.login-form-error {
+  margin-top: 10px;
+  color: red;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  #authsignup {
+    margin: 0 10px;
   }
+}
 
-  .login-form-error{
-    margin-top: 10px;
-    color: red;
-    padding: 5px 10px;
-    background-color: white;
-  }
-  
-  @media (max-width: 768px) {
-  
-  
-       #authsignup{
-          margin: 0 10px;
-       }
-  }
+/* dashbord */
 
+.nav-link.active {
+  border-bottom: 3px solid white;
+}
 
-  /* dashbord */
+.logout-btn {
+  margin-left: 30px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 22px;
+  cursor: pointer;
+  color: white;
+  font: inherit;
+  padding: 8px 36px;
 
+  font-weight: bold;
+}
 
-  
-  .logout-btn {
-    margin-left: 30px;
-    background: transparent;
-    border: 1px solid white;
-    border-radius: 22px;
-    cursor: pointer;
-    color: white;
-    font: inherit;
-    padding: 8px 36px;
-  
-    font-weight: bold;
-  }
-  
+.dashboard-container {
+  height: 400px;
+  margin: 50px;
+  min-width: min-content;
+  padding: 0 30px;
+  background: #1f3060;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+}
+
+.dash-btn {
+  background: transparent;
+  border: 1.5px solid white;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 25px;
+}
+.greeting {
+  margin-bottom: 30px;
+}
+
+.dashboard-cta {
+  display: flex;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+@media (min-width: 900px) {
   .dashboard-container {
-    height: 400px;
-    margin: 50px;
-    min-width: min-content;
-    padding: 0 30px;
-    background: #1f3060;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 50px 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 30px;
+  }
+
+  .logout-btn {
+    margin: 0;
+  }
+}
+
+
+/* notes app */
+.btn-add-new-note {
+  padding: 15px 25px;
+  border-radius: 25px;
+  color: white;
+  background-color: #1f3060;
+  margin-left: 50px;
+}
+
+.head-section {
+  display: flex;
+  align-items: center;
+
+  margin: 30px 24px;
+}
+
+.head-section h2 {
+  font-size: 35px;
+}
+
+.notes-card-list {
+  margin: 50px 24px;
+  display: flex;
+  gap: 30px;
+  color: white;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.notes-card {
+  background: #1f3060;
+flex-basis: 25%;
+  padding: 30px 50px;
+  border-radius: 40px;
+  gap: 30px;
+  min-height: 250px;
+}
+
+.notes-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.notes-card__controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .notes-card-list {
     flex-direction: column;
-    border-radius: 25px;
+
+    width: 100vw;
+    padding: 0 24px;
+    height: max-content;
+    margin: 0;
   }
-  
-  .dash-btn {
-    background: transparent;
-    border: 1.5px solid white;
-    padding: 10px 18px;
-    color: white;
-    border-radius: 25px;
+
+  .notes-card {
+    padding: 25px;
   }
-  .greeting {
-    margin-bottom: 30px;
-  }
-  
-  .dashboard-cta {
-    display: flex;
-    gap: 30px;
-    margin-top: 60px;
-  }
-  
-  @media (min-width: 900px) {
-    .dashboard-container {
-      margin: 50px 250px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .dashboard-container {
-      margin: 30px;
-    }
-  }
-  
+}
+
