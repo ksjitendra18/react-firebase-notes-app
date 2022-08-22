@@ -8,7 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Notes from "./components/Notes/Notes";
-import Learn from "./components/Auth/Learn";
+
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -24,7 +24,7 @@ function App() {
         <Route path="about" element={<About />} />
 
         <Route path="features" element={<Features />} />
-        <Route path="learn" element={<Learn />} />
+
         <Route
           path="dashboard"
           element={
